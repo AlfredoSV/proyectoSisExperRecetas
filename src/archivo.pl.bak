@@ -1,0 +1,3 @@
+saludo(alfredo,["paso2","pason"]).
+saludo(enrique,[lalalala]).
+
