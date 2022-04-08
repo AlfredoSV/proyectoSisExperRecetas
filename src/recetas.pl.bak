@@ -28,4 +28,6 @@ receta(nombrereceta,[paso1,paso2],[ingredinte1,ingrediente2]).
 receta(nombrereceta,[paso1,paso2],[ingredinte1,ingrediente2]).
 
 //Reglas
-evaluar_gusto(horario,tipodieta,antojo,gusto,tipoplatillo,tiempo,receta()).
+
+
+

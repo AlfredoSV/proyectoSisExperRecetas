@@ -4,9 +4,6 @@
  */
 package proyectosisexperrecetas;
 
-import org.jpl7.Atom;
-import org.jpl7.Query;
-import org.jpl7.Term;
 import org.jpl7.*;
 
 /**
@@ -20,7 +17,7 @@ public class ProyectoSisExperRecetas {
         System.out.println("Hello World!");
 
         Inicio inicio = new Inicio();
-
+/*
         String t1 = "consult('src/archivo.pl')";
         Query q1 = new Query(t1);
         System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo")); 
@@ -44,7 +41,7 @@ public class ProyectoSisExperRecetas {
         System.out.println("X = " + solution.get("X1"));
         
         String[] pasos = solution.get("X1").toString().split(",");
-        
+        */
         /*for (String paso : pasos) {
             
             System.out.println(paso.replace(" ", "").replace("]","").replace("[",""));
