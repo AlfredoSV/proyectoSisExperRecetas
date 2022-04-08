@@ -6,7 +6,7 @@
 
 #Nota: Es necesario agrega la dependencia jpl.jar
 
-![cap1](https://github.com/AlfredoSV/ERP-GestionHospitalaria-ProyectoFinal-Universidad/blob/main/capturas/cap1.PNG)
+![cap1](https://github.com/AlfredoSV/proyectoSistemaExpertoRecetas_Java_Prolog/blob/main/capturas/cap1.PNG)
 
 
 
