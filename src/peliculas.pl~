@@ -1,0 +1,69 @@
+
+% Serie o Pelicula
+% Clasificación
+% Genero
+% Actores 
+% Duración
+
+recpeliculaoserie(G,POS,C,N,NC,D,AL):-POS = 
+pelicula,genero(G,N),peliculastitulos(N,NC,D,C),actoresprinci(AL,N).
+
+recpeliculaoserie(G,POS,N,NC,D,C,AL):-POS = 
+serie,genero(G,N),seriestitulos(N,NC,D,_,C),actoresprinci(AL,N).
+
+% ------------------------------------------------------
+
+% Regla para obtener los generos disponibles de las peliculas y series
+
+genseriopel(SOP,G):-SOP = pelicula,peliculastitulos(P,_,_,_),genero(G,R),member(P,R).
+genseriopel(SOP,G):-SOP = serie,seriestitulos(S,_,_,_,_),genero(G,R),member(S,R).
+
+
+% ------------------------------------------------------
+
+genero(terror,[conjuro]).
+genero(drama,[anatomiasegungray,amigosint,enemigoace,elpianista,eldiscursorey]).
+genero(comedia,[amigosint]).
+genero(aventura,[gladiador]).
+genero(accion,[gladiador]).
+genero(bélico,[enemigoace,elpianista]).
+genero(tragedia,[chernobil]).
+
+
+% -------------------------------------------------------
+
+clasificacion(k12,"K-12").
+clasificacion(b15,"B-15").
+clasificacion(r,"R").
+clasificacion(c,"C").
+clasificacion(b,"B").
+
+% -------------------------------------------------------
+
+actoresprinci(["Patrick Wilson","Vera Farmiga"],conjuro).
+actoresprinci(["Omar Sy","Francois Cluzet"],amigosint).
+actoresprinci(["Russell Crowe","Joaquin Pohoenix"],gladiador).
+actoresprinci(["Jude Law","Erwin Konig"],enemigoace).
+actoresprinci(["Adrien Brody","Ed Stoppard","Emilia Fox"],elpianista).
+actoresprinci(["Colin Firth","Guy Pearce","Geoffrey Rush"],eldiscursorey).
+actoresprinci(["Jared Harris","Emily Watson","Stellan Skarsgárd"],chernobil).
+
+
+% -------------------------------------------------------
+
+peliculastitulos(conjuro,"El conjuro - saga",90,b15).
+peliculastitulos(amigosint,"Amigos intocables",112,k12).
+peliculastitulos(gladiador,"Gladiador",195,b15).
+peliculastitulos(enemigoace,"Enemigo al acecho",131,r).
+peliculastitulos(elpianista,"El pianista",150,c).
+peliculastitulos(eldiscursorey,"El discurso del rey",120,b).
+
+% -------------------------------------------------------
+
+seriestitulos(anatomiasegungray,"Anátomia según Grey",44,18,b15).
+seriestitulos(chernobil,"Chernobil",72,1,b15).
+
+
+
+
+

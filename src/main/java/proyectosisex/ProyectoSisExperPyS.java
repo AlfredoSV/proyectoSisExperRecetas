@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-package proyectosisexperrecetas;
+package proyectosisex;
 
 import org.jpl7.*;
 
@@ -10,14 +10,16 @@ import org.jpl7.*;
  *
  * @author Alfredo
  */
-public class ProyectoSisExperRecetas {
+public class ProyectoSisExperPyS {
 
     public static void main(String[] args) {
 
         System.out.println("Hello World!");
 
-        Inicio inicio = new Inicio();
+     
+        Ingreso ingreso = new Ingreso();
 /*
+        
         String t1 = "consult('src/archivo.pl')";
         Query q1 = new Query(t1);
         System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo")); 
