@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package proyectosisex;
 
 import java.awt.Dimension;
@@ -21,15 +17,8 @@ import org.jpl7.Variable;
  */
 public class Inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inicio
-     */
     public Inicio() {
         initComponents();
-
-        jComboBoxTipo.addItem("Serie");
-
-        jComboBoxTipo.addItem("Pelicula");
 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ico.png")));
@@ -110,6 +99,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabelTipo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTipo.setText("Tipo:");
 
+        jComboBoxTipo.setEnabled(false);
         jComboBoxTipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxTipoItemStateChanged(evt);
@@ -125,11 +115,17 @@ public class Inicio extends javax.swing.JFrame {
         jLabelHorario.setText("Servicio Streaming:");
 
         jComboBoxServcio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Netflix", "HBO", "Amazon" }));
+        jComboBoxServcio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxServcioActionPerformed(evt);
+            }
+        });
 
         jLabelTipoDieta.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTipoDieta.setText("Estudio cinematográfico preferido:");
         jLabelTipoDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jComboBoxGenero.setEnabled(false);
         jComboBoxGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxGeneroActionPerformed(evt);
@@ -139,6 +135,7 @@ public class Inicio extends javax.swing.JFrame {
         jButtonConsultar.setBackground(new java.awt.Color(204, 255, 204));
         jButtonConsultar.setText("Consultar");
         jButtonConsultar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButtonConsultar.setEnabled(false);
         jButtonConsultar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonConsultarMouseClicked(evt);
@@ -183,6 +180,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabelTipoDieta4.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTipoDieta4.setText("Genero:");
 
+        jComboBoxEstudios.setEnabled(false);
         jComboBoxEstudios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxEstudiosActionPerformed(evt);
@@ -196,14 +194,11 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTipo)
-                            .addComponent(jLabelHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTipoDieta4))
-                        .addGap(63, 63, 63))
-                    .addComponent(jLabelTipoDieta, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabelTipo)
+                    .addComponent(jLabelHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTipoDieta4)
+                    .addComponent(jLabelTipoDieta))
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jComboBoxServcio, 0, 142, Short.MAX_VALUE)
@@ -472,65 +467,46 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConsultarMouseClicked
 
     private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
-        String seleccionado = (String) jComboBoxTipo.getSelectedItem();
+        String tipo = (String) jComboBoxTipo.getSelectedItem();
+        String servicio = (String) jComboBoxServcio.getSelectedItem();
 
-        if (seleccionado.equals("Pelicula")) {
-            jComboBoxDuracionPeli.setEnabled(true);
-            jComboBoxDuracionEpi.setEnabled(false);
-        } else {
+        if (tipo != null) {
+            jComboBoxGenero.setEnabled(true);
+            if (tipo.equals("Pelicula")) {
+                jComboBoxDuracionPeli.setEnabled(true);
+                jComboBoxDuracionEpi.setEnabled(false);
+            } else {
 
-            jComboBoxDuracionPeli.setEnabled(false);
-            jComboBoxDuracionEpi.setEnabled(true);
-        }
+                jComboBoxDuracionPeli.setEnabled(false);
+                jComboBoxDuracionEpi.setEnabled(true);
+            }
+            jComboBoxGenero.setEnabled(true);
+            //JOptionPane.showMessageDialog(null,seleccionado);
+            String t1 = "consult('src/peliculas.pl')";
+            Query q1 = new Query(t1);
+            System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo"));
 
-        //JOptionPane.showMessageDialog(null,seleccionado);
-        String t1 = "consult('src/peliculas.pl')";
-        Query q1 = new Query(t1);
-        System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo"));
+            Variable GENERO = new Variable("GENERO");
 
-        Variable G = new Variable("G");
+            Query q4
+                    = new Query(
+                            "genseriopel",
+                            new Term[]{new Atom(servicio.toLowerCase()), new Atom(tipo.toLowerCase()), GENERO}
+                    );
 
-        Query q4
-                = new Query(
-                        "genseriopel",
-                        new Term[]{new Atom(seleccionado.toLowerCase()), G}
-                );
+            java.util.Map<String, Term>[] solution;
 
-        java.util.Map<String, Term>[] solution;
+            solution = q4.allSolutions();
 
-        solution = q4.allSolutions();
+            jComboBoxGenero.removeAllItems();
 
-        jComboBoxGenero.removeAllItems();
+            for (int i = 0; i < solution.length; i++) {
+                //JOptionPane.showMessageDialog(null, solution[0].get("G"));
 
-        for (int i = 0; i < solution.length; i++) {
-            //JOptionPane.showMessageDialog(null, solution[0].get("G"));
+                String item = solution[i].get("GENERO").toString();
+                jComboBoxGenero.addItem(item.substring(0, 1).toUpperCase() + item.substring(1).toLowerCase());
+            }
 
-            String item = solution[i].get("G").toString();
-            jComboBoxGenero.addItem(item.substring(0, 1).toUpperCase() + item.substring(1).toLowerCase());
-        }
-
-        //////////////////////////////////////////////////////////////////////
-        //TIPO,OESTUDIO,ESTUDIO
-        System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo"));
-
-        Variable OESTUDIO = new Variable("OESTUDIO");
-        Variable ESTUDIO = new Variable("ESTUDIO");
-        Query q
-                = new Query(
-                        "consulestudiosp",
-                        new Term[]{new Atom(seleccionado.toLowerCase()), OESTUDIO, ESTUDIO}
-                );
-
-        java.util.Map<String, Term>[] estudios;
-
-        estudios = q.allSolutions();
-
-        jComboBoxEstudios.removeAllItems();
-
-        for (int i = 0; i < estudios.length; i++) {
-
-            String item = estudios[i].get("ESTUDIO").toString().replace("\'", "");
-            jComboBoxEstudios.addItem(item);
         }
 
     }//GEN-LAST:event_jComboBoxTipoActionPerformed
@@ -540,6 +516,42 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTipoItemStateChanged
 
     private void jComboBoxGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGeneroActionPerformed
+        //////////////////////////////////////////////////////////////////////
+        //TIPO,OESTUDIO,ESTUDIO
+        String t1 = "consult('src/peliculas.pl')";
+        Query q1 = new Query(t1);
+        System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo"));
+
+        String tipo = (String) jComboBoxTipo.getSelectedItem();
+
+        String servicio = (String) jComboBoxServcio.getSelectedItem();
+
+        String genero = (String) jComboBoxGenero.getSelectedItem();
+        if (genero != null) {
+            System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo"));
+
+            Variable OESTUDIO = new Variable("OESTUDIO");
+            Variable ESTUDIO = new Variable("ESTUDIO");
+            Query q
+                    = new Query(
+                            "consulestudiosp",
+                            new Term[]{new Atom(tipo.toLowerCase()), new Atom(genero.toLowerCase()), new Atom(servicio.toLowerCase()), OESTUDIO, ESTUDIO}
+                    );
+
+            java.util.Map<String, Term>[] estudios;
+
+            estudios = q.allSolutions();
+
+            jComboBoxEstudios.removeAllItems();
+
+            jComboBoxEstudios.setEnabled(true);
+
+            for (int i = 0; i < estudios.length; i++) {
+
+                String item = estudios[i].get("ESTUDIO").toString().replace("\'", "");
+                jComboBoxEstudios.addItem(item);
+            }
+        }
 
 
     }//GEN-LAST:event_jComboBoxGeneroActionPerformed
@@ -582,7 +594,7 @@ public class Inicio extends javax.swing.JFrame {
         Query q1 = new Query(t1);
         System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo"));
 
-        Variable NOMBREPELICULA = new Variable("NOMBREPELICULA");
+        Variable TITULO = new Variable("TITULO");
         Variable DURACIONR = new Variable("DURACIONR");
         Variable CLASIFICACIONR = new Variable("CLASIFICACIONR");
         Variable ANIOESTRENOR = new Variable("ANIOESTRENOR");
@@ -596,7 +608,7 @@ public class Inicio extends javax.swing.JFrame {
                         "recpeliculaoserie",
                         new Term[]{new Atom(tipo.toLowerCase()), new Atom(disponible.toLowerCase()),
                             new Atom(genero.toLowerCase()), new Atom(estudio), new Atom(duracion.toLowerCase()),
-                            new Atom(estrenomin), new Atom(estrenomax), NOMBREPELICULA, DURACIONR, CLASIFICACIONR, ANIOESTRENOR, ACTORESPRINCIPALESR, NOMBREIMG}
+                            new Atom(estrenomin), new Atom(estrenomax), TITULO, DURACIONR, CLASIFICACIONR, ANIOESTRENOR, ACTORESPRINCIPALESR, NOMBREIMG}
                 );
 
         java.util.Map<String, Term> solution;
@@ -609,11 +621,11 @@ public class Inicio extends javax.swing.JFrame {
 
             String imagen = solution.get("NOMBREIMG").toString().replace("\'", "");
 
-            ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/imagenes/" + imagen).getImage().getScaledInstance(300, 400, Image.SCALE_DEFAULT));
+            ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/imagenes/" + imagen).getImage().getScaledInstance(300, 300, Image.SCALE_DEFAULT));
 
             jLabelImgPelicula.setIcon(imageIcon);
 
-            jTextPanelTiulo.setText(solution.get("NOMBREPELICULA").toString());
+            jTextPanelTiulo.setText(solution.get("TITULO").toString().replace("\'", ""));
 
             jTextPaneAnioEstreno.setText(solution.get("ANIOESTRENOR").toString());
 
@@ -631,7 +643,52 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jComboBoxEstudiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstudiosActionPerformed
         // TODO add your handling code here:
+        jButtonConsultar.setEnabled(true);
     }//GEN-LAST:event_jComboBoxEstudiosActionPerformed
+
+    private void jComboBoxServcioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxServcioActionPerformed
+
+        String servicio = (String) jComboBoxServcio.getSelectedItem();
+
+        String plarchivo = "consult('src/peliculas.pl')";
+        Query con = new Query(plarchivo);
+        System.out.println(plarchivo + " " + (con.hasSolution() ? "verdadero" : "fallo"));
+
+        Query existenpeliculasservicio
+                = new Query(
+                        "existenpeliculasservicio",
+                        new Term[]{new Atom(servicio.toLowerCase())}
+                );
+
+        boolean existenpeliculasservicioresultado;
+
+        existenpeliculasservicioresultado = existenpeliculasservicio.hasSolution();
+
+        Query existenseriesservicio
+                = new Query(
+                        "existenseriesservicio",
+                        new Term[]{new Atom(servicio.toLowerCase())}
+                );
+
+        boolean existenseriesservicioresultado;
+
+        existenseriesservicioresultado = existenseriesservicio.hasSolution();
+
+        jComboBoxTipo.removeAllItems();
+
+        if (existenseriesservicioresultado) {
+            jComboBoxTipo.addItem("Serie");
+        }
+
+        if (existenpeliculasservicioresultado) {
+            jComboBoxTipo.addItem("Pelicula");
+        }
+
+        if (existenpeliculasservicioresultado || existenseriesservicioresultado) {
+            jComboBoxTipo.setEnabled(true);
+        }
+
+    }//GEN-LAST:event_jComboBoxServcioActionPerformed
 
     /**
      * @param args the command line arguments
