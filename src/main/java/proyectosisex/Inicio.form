@@ -93,16 +93,18 @@
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelTipoDieta1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelTipoDieta2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelTipoDieta3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTipoDieta5" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jComboBoxDuracionEpi" min="-2" pref="142" max="-2" attributes="0"/>
                       <Component id="jComboBoxDuracionPeli" min="-2" pref="142" max="-2" attributes="0"/>
-                      <Component id="jComboBoxEstreno" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                      <Component id="jComboBoxEstrenoPelicula" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                      <Component id="jComboBoxEstrenoSerie" min="-2" pref="142" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
@@ -127,7 +129,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelTipoDieta3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxEstreno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxEstrenoPelicula" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="jComboBoxTipo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -137,15 +139,22 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabelTipoDieta4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="47" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelTipoDieta4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxEstrenoSerie" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelTipoDieta2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxDuracionPeli" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
                           <Component id="jButtonConsultar" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelTipoDieta2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxDuracionPeli" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBoxGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelTipoDieta5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -199,10 +208,9 @@
         <Component class="javax.swing.JComboBox" name="jComboBoxServcio">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="2">
                 <StringItem index="0" value="Netflix"/>
-                <StringItem index="1" value="HBO"/>
-                <StringItem index="2" value="Amazon"/>
+                <StringItem index="1" value="Amazon"/>
               </StringArray>
             </Property>
           </Properties>
@@ -275,7 +283,7 @@
             <Property name="text" type="java.lang.String" value="Duraci&#xf3;n pelicula:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxEstreno">
+        <Component class="javax.swing.JComboBox" name="jComboBoxEstrenoPelicula">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -287,7 +295,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxEstrenoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxEstrenoPeliculaActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -298,7 +306,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Rango de a&#xf1;o de estreno:"/>
+            <Property name="text" type="java.lang.String" value="Estreno pelicula:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxDuracionPeli">
@@ -352,6 +360,34 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxEstudiosActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelTipoDieta5">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Estreno serie:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxEstrenoSerie">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="2017"/>
+                <StringItem index="1" value="2018"/>
+                <StringItem index="2" value="2019"/>
+                <StringItem index="3" value="2020"/>
+                <StringItem index="4" value="2021"/>
+                <StringItem index="5" value="2022"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxEstrenoSerieActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -424,9 +460,8 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -437,7 +472,11 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jScrollPane7" min="-2" pref="165" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane5" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
+                          <Component id="jScrollPane5" min="-2" pref="165" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -450,7 +489,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="165" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -459,7 +498,7 @@
                           <Component id="jScrollPane4" min="-2" pref="165" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="87" max="32767" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
@@ -508,7 +547,7 @@
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
@@ -548,7 +587,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Directores:"/>
+            <Property name="text" type="java.lang.String" value="Actores principales:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -556,7 +595,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Generos:"/>
+            <Property name="text" type="java.lang.String" value="A&#xf1;o de estreno:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -580,7 +619,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="A&#xf1;o de estreno:"/>
+            <Property name="text" type="java.lang.String" value="Clasificaci&#xf3;n:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel4">
@@ -654,7 +693,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="jTextPaneGeneros">
+            <Component class="javax.swing.JTextPane" name="jTextPaneAnioEstreno">
             </Component>
           </SubComponents>
         </Container>
@@ -665,7 +704,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="jTextPaneDirectores">
+            <Component class="javax.swing.JTextPane" name="jTextPaneActores">
             </Component>
           </SubComponents>
         </Container>
@@ -698,7 +737,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="jTextPaneAnioEstreno">
+            <Component class="javax.swing.JTextPane" name="jTextPaneClasificacion">
               <Properties>
                 <Property name="dragEnabled" type="boolean" value="true"/>
               </Properties>
