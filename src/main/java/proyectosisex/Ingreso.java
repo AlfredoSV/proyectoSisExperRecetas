@@ -52,7 +52,8 @@ public class Ingreso extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Sánchez Verduzco Alfredo");
+        jLabel3.setText("Alfredo Sánchez Verduzco");
+        jLabel3.setToolTipText("");
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Sistemas Inteligentes");
@@ -75,7 +76,7 @@ public class Ingreso extends javax.swing.JFrame {
         jLabel5.setText("Materia:");
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Sánchez Verduzco Alfredo");
+        jLabel7.setText("Grissel Rodriguez Roldan");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -176,14 +176,34 @@ peliculastitulos(nadie,"Nadie",92,b15,2021,amazon,"nadie.jpg").
 peliculastitulos(venomcarnage,"Venon: Carnage liberado",97,b,2021,amazon,"venomcarnage.jpg").
 peliculastitulos(moonfall,"Moonfall",120,b,2022,amazon,"moonfall.jpg").
 
+
+peliculastitulos(hombreenllamas,"Hombre en llamas",146,r,2004,netflix,"hombreenllamas.jpg").
+peliculastitulos(noe,"Noe",137,pg13,2014,netflix,"noe.jpg").
+peliculastitulos(perfectoasesino,"El perfecto asesino",109,r,2000,netflix,"perfectoasesino.jpg").
+
+
+peliculastitulos(candyman,"Candyman",91,pg13,2021,amazon,"candyman.jpg").
+peliculastitulos(laabuela,"La abuela",100,pg13,2021,amazon,"laabuela.jpg").
+peliculastitulos(spencer,"Spencer",111,b,2021,amazon,"spencer.jpg").
+peliculastitulos(oscuraverdad,"Oscura verdad",92,pg13,2021,amazon,"oscuraverdad.jpg").
+peliculastitulos(guason,"Guason",122,b15,2019,amazon,"guason.jpg").
+
+
+
 % -------------------------------------------------------
 
 seriestitulos(anatomiasegungray,"Anatomia segun Grey",44,18,b15,2005,netflix,"anatomiagrey.jpg").
 seriestitulos(lupin,"Lupin",42,2,tv14,2021,netflix,"lupin.jpg").
 seriestitulos(gotham,"Gotham",50,5,tmma,2019,netflix,"gotham.jpg").
-seriestitulos(blacklist,"Black List",45,7,tv14,2020,netflix,"blacklist.jpg").
+seriestitulos(blacklist,"Black List",65,7,tv14,2020,netflix,"blacklist.jpg").
 seriestitulos(you,"You",50,3,tvma,2021,netflix,"you.jpg").
 seriestitulos(gooddoctor,"The Good Doctor",50,5,tvma,2021,amazon,"gooddoctor.jpg").
+seriestitulos(loscien,"Los 100",45,7,tvma,2020,netflix,"loscien.jpg").
+seriestitulos(orangeisthenewblack,"Orange is the new black",60,7,tvma,2019,netflix,"orangeisthenewblack.jpg").
+seriestitulos(puntociego,"Punto ciego",50,5,tv14,2020,netflix,"puntociego.jpg").
+
+
+
 % ------------------------------------------------------
 
 
@@ -191,28 +211,31 @@ seriestitulos(gooddoctor,"The Good Doctor",50,5,tvma,2021,amazon,"gooddoctor.jpg
 % Va ligada a genseriopel
 
 generopeliculasnetflix(terror,[conjuro]).
-generopeliculasnetflix(drama,[amigosint,enemigoace,elpianista,eldiscursorey]).
+generopeliculasnetflix(drama,[amigosint,enemigoace,elpianista,eldiscursorey,hombreenllamas]).
 generopeliculasnetflix(comedia,[amigosint]).
-generopeliculasnetflix(aventura,[gladiador,sherlock,guerramundialz]).
-generopeliculasnetflix(accion,[gladiador,misionrescate,guerramundialz]).
+generopeliculasnetflix(aventura,[gladiador,sherlock,guerramundialz,noe,perfectoasesino]).
+generopeliculasnetflix(accion,[gladiador,misionrescate,guerramundialz,hombreenllamas,noe,perfectoasesino]).
 generopeliculasnetflix(belico,[enemigoace,elpianista]).
 generopeliculasnetflix(misterio,[elcodigodavinci]).
 
 
-generoseriesnetflix(comedia,[lupin]).
-generoseriesnetflix(drama,[gotham,blacklist,anatomiasegungray,you]).
-generoseriesnetflix(accion,[gotham,blacklist,lupin]).
+generoseriesnetflix(comedia,[lupin,orangeisthenewblack]).
+generoseriesnetflix(drama,[gotham,blacklist,anatomiasegungray,you,loscien,orangeisthenewblack,puntociego]).
+generoseriesnetflix(accion,[gotham,blacklist,lupin,loscien]).
 generoseriesnetflix(criminal,[you]).
-
+generoseriesnetflix(misterio,[puntociego]).
 
 
 generoseriesamazon(drama,[gooddoctor]).
 
 
 generopeliculasamazon(accion,[venomcarnage,nadie]).
-generopeliculasamazon(terror,[venomcarnage]).
+generopeliculasamazon(terror,[venomcarnage,candyman,laabuela,oscuraverdad]).
 generopeliculasamazon(comedia,[venomcarnage]).
 generopeliculasamazon(aventura,[moonfall]).
+generopeliculasamazon(drama,[guason,spencer]).
+generopeliculasamazon(crimen,[guason]).
+
 
 % -------------------------------------------------------
 
@@ -223,22 +246,27 @@ estudiocinematograficopelicula(seesawfilms,"See Saw Films",[eldiscursorey],[dram
 estudiocinematograficopelicula(newlinecinema,"New Line Cinema",[conjuro],[terror],[netflix]).
 estudiocinematograficopelicula(gaumontfilmcompany,"Gaumont Film Company",[amigosint],[drama,comedia,gladiador],[netflix]).
 estudiocinematograficopelicula(universalpictures,"Universal Pictures",[gladiador],[accion,aventura],[netflix]).
-estudiocinematograficopelicula(paramountpictures,"Paramount Pictures",[enemigoace],[belico],[netflix]).
-estudiocinematograficopelicula(imagineentertainment,"Imagine Entertainment",[elcodigodavinci],[misterio],[netflix]).
+estudiocinematograficopelicula(imagineentertainment,"Imagine Entertainment",[elcodigodavinci,hombreenllamas],[misterio,accion,drama],[netflix]).
 estudiocinematograficopelicula(skydanceproductions,"Skydance Productions",[guerramundialz],[aventura,accion],[netflix]).
 estudiocinematograficopelicula(agbo,"AGBO",[misionrescate],[accion],[netflix]).
 estudiocinematograficopelicula(silverpictures,"Silver Pictures",[sherlock],[aventura],[netflix]).
 estudiocinematograficopelicula(marvelentertainment,"Marvel Entertainment",[venomcarnage],[accion,terror,comedia],[amazon]).
 estudiocinematograficopelicula(northproductions,"North Productions",[nadie],[accion],[amazon]).
 estudiocinematograficopelicula(centropolisentertainment,"Centropolis Entertainment",[moonfall],[aventura],[amazon]).
+estudiocinematograficopelicula(paramountpictures,"Paramount Pictures",[noe,perfectoasesino,enemigoace],[accion,aventura,belico],[netflix]).
+estudiocinematograficopelicula(triStarpictures,"TriStar Pictures",[candyman,laabuela],[terror],[amazon]).
+estudiocinematograficopelicula(komplizenfilm,"Komplizen Film",[spencer,oscuraverdad],[drama,terror],[amazon]).
+estudiocinematograficopelicula(dcfilms,"DC Films",[guason],[drama,crimen],[amazon]).
 
 
-
+estudiocinematograficoserie(lionsgatetelevision,"Lionsgate Television",[orangeisthenewblack],[drama,comedia],[netflix]).
+estudiocinematograficoserie(warnerbros,"Warner Bros",[puntociego,loscien],[drama,misterio,accion],[netflix]).
 estudiocinematograficoserie(abcsignature,"ABC Signature",[anatomiasegungray],[drama],[netflix]).
 estudiocinematograficoserie(dcentertainment,"DC Entertainment",[gotham,blacklist],[drama,accion],[netflix]).
-estudiocinematograficoserie(gaumonttelevision,"Gaumont Television",[lupin],[comedia,accion],[netflix]).
-estudiocinematograficoserie(gaumonttelevision,"Gaumont Television",[you],[drama,criminal],[netflix]).
+estudiocinematograficoserie(gaumonttelevision,"Gaumont Television",[lupin,you],[comedia,accion,drama,criminal],[netflix]).
 estudiocinematograficoserie(abdsignature,"ABC Signature",[gooddoctor],[drama],[amazon]).
+
+
 
 % -------------------------------------------------------
 
@@ -263,8 +291,33 @@ actoresprinci(["Omar Sy","Ludvine Sagnier"],lupin).
 actoresprinci(["James Spader","Megan Boone"],blacklist).
 actoresprinci(["Penn Badgley","Victoria Pedretti"],you).
 actoresprinci(["Freddie Highmore","Richard Schiff"],gooddoctor).
+actoresprinci(["Denzel Washington","Dakota Fanning"],hombreenllamas).
+actoresprinci(["Russell Crowe","Jennifer Connelly","Emma Watson"],noe).
+actoresprinci(["Jean Reno","Natalie Portman"],perfectoasesino).
+actoresprinci(["Eliza Taylor","Paige Turco"],loscien).
+actoresprinci(["Taylor Schilling","Kate Mulgrew"],orangeisthenewblack).
+actoresprinci(["Sullivan Stapleton","Jaimie Alexander"],puntociego).
+actoresprinci(["Yahya Mateen","Teyonah Parris"],candyman).
+actoresprinci(["Kristen Stewart","Jack Farthing"],spencer).
+actoresprinci(["Llana Glazer","Sophia Bush"],oscuraverdad).
+actoresprinci(["Joaquin Phoenix","Robert De Niro"],guason).
+actoresprinci(["Almudena Amor","Vera Valdez"],laabuela).
+
+
+
 
 % Nuevas ---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
 
