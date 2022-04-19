@@ -28,6 +28,10 @@ public class Inicio extends javax.swing.JFrame {
         String pasostr = CargarDatos();
 
         jTextPaneTipo.setEnabled(false);
+        
+        jComboBoxTipo.addItem("Pelicula");
+        
+        jComboBoxTipo.addItem("Serie");
 
         jTextPaneDisponibleEn.setEnabled(false);
 
@@ -45,8 +49,6 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelTipo = new javax.swing.JLabel();
         jComboBoxTipo = new javax.swing.JComboBox<>();
-        jLabelHorario = new javax.swing.JLabel();
-        jComboBoxServcio = new javax.swing.JComboBox<>();
         jLabelTipoDieta = new javax.swing.JLabel();
         jComboBoxGenero = new javax.swing.JComboBox<>();
         jButtonConsultar = new javax.swing.JButton();
@@ -98,7 +100,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabelTipo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTipo.setText("Tipo:");
 
-        jComboBoxTipo.setEnabled(false);
         jComboBoxTipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxTipoItemStateChanged(evt);
@@ -107,16 +108,6 @@ public class Inicio extends javax.swing.JFrame {
         jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTipoActionPerformed(evt);
-            }
-        });
-
-        jLabelHorario.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelHorario.setText("Servicio Streaming:");
-
-        jComboBoxServcio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Netflix", "Amazon" }));
-        jComboBoxServcio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxServcioActionPerformed(evt);
             }
         });
 
@@ -204,17 +195,13 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTipo)
-                    .addComponent(jLabelHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTipoDieta4)
                     .addComponent(jLabelTipoDieta))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxTipo, 0, 163, Short.MAX_VALUE)
                     .addComponent(jComboBoxGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxEstudios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBoxServcio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jComboBoxEstudios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTipoDieta1)
@@ -238,24 +225,22 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelHorario)
                     .addComponent(jLabelTipoDieta1)
-                    .addComponent(jComboBoxServcio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxDuracionEpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxDuracionEpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTipo)
+                    .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelTipoDieta3)
-                        .addComponent(jComboBoxEstrenoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelTipo)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTipoDieta3)
+                    .addComponent(jComboBoxEstrenoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTipoDieta4)
+                    .addComponent(jComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTipoDieta4)
-                            .addComponent(jComboBoxEstrenoSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jComboBoxEstrenoSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxEstudios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelTipoDieta2)
@@ -264,11 +249,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTipoDieta5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxEstudios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTipoDieta5)
                             .addComponent(jLabelTipoDieta))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -480,8 +461,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
         String tipo = (String) jComboBoxTipo.getSelectedItem();
-        String servicio = (String) jComboBoxServcio.getSelectedItem();
-
+        
         if (tipo != null) {
             jComboBoxGenero.setEnabled(true);
             if (tipo.equals("Pelicula")) {
@@ -507,7 +487,7 @@ public class Inicio extends javax.swing.JFrame {
             Query q4
                     = new Query(
                             "genseriopel",
-                            new Term[]{new Atom(servicio.toLowerCase()), new Atom(tipo.toLowerCase()), GENERO}
+                            new Term[]{new Atom(tipo.toLowerCase()), GENERO}
                     );
 
             java.util.Map<String, Term>[] solution;
@@ -540,8 +520,7 @@ public class Inicio extends javax.swing.JFrame {
 
         String tipo = (String) jComboBoxTipo.getSelectedItem();
 
-        String servicio = (String) jComboBoxServcio.getSelectedItem();
-
+        
         String genero = (String) jComboBoxGenero.getSelectedItem();
         if (genero != null) {
             System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo"));
@@ -551,7 +530,7 @@ public class Inicio extends javax.swing.JFrame {
             Query q
                     = new Query(
                             "consulestudiosp",
-                            new Term[]{new Atom(tipo.toLowerCase()), new Atom(genero.toLowerCase()), new Atom(servicio.toLowerCase()), OESTUDIO, ESTUDIO}
+                            new Term[]{new Atom(tipo.toLowerCase()), new Atom(genero.toLowerCase()), OESTUDIO, ESTUDIO}
                     );
 
             java.util.Map<String, Term>[] estudios;
@@ -583,8 +562,6 @@ public class Inicio extends javax.swing.JFrame {
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
 
         String tipo = (String) jComboBoxTipo.getSelectedItem();
-
-        String disponible = (String) jComboBoxServcio.getSelectedItem();
 
         String genero = (String) jComboBoxGenero.getSelectedItem();
 
@@ -623,14 +600,15 @@ public class Inicio extends javax.swing.JFrame {
         Variable ACTORESPRINCIPALESR = new Variable("ACTORESPRINCIPALESR");
         Variable NOMBREIMG = new Variable("NOMBREIMG");
 
+        Variable SERVICIO = new Variable("SERVICIO");
         Atom j = new Atom(estreno[0]);
 
         Query q4
                 = new Query(
                         "recpeliculaoserie",
-                        new Term[]{new Atom(tipo.toLowerCase()), new Atom(disponible.toLowerCase()),
+                        new Term[]{new Atom(tipo.toLowerCase()), 
                             new Atom(genero.toLowerCase()), new Atom(estudio), new Atom(duracion.toLowerCase()),
-                            new Atom(estrenomin), new Atom(estrenomax), TITULO, DURACIONR, CLASIFICACIONR, ANIOESTRENOR, ACTORESPRINCIPALESR, NOMBREIMG}
+                            new Atom(estrenomin), new Atom(estrenomax), TITULO, DURACIONR, CLASIFICACIONR, ANIOESTRENOR, ACTORESPRINCIPALESR, NOMBREIMG,SERVICIO}
                 );
 
         java.util.Map<String, Term> solution;
@@ -651,11 +629,13 @@ public class Inicio extends javax.swing.JFrame {
 
             jTextPaneClasificacion.setText(solution.get("ANIOESTRENOR").toString());
 
-            jTextPaneDisponibleEn.setText(disponible);
+            jTextPaneDisponibleEn.setText(solution.get("SERVICIO").toString().toUpperCase());
             
             jTextPaneDuracion.setText(solution.get("DURACIONR") + " minutos");
             
             jTextPaneClasificacion.setText(solution.get("CLASIFICACIONR").toString().toUpperCase());
+            
+            JOptionPane.showMessageDialog(null, "Recomendación:" +solution.get("TITULO").toString().replace("\'", ""));
             
             jTextPaneActores.setText(solution.get("ACTORESPRINCIPALESR").toString().toUpperCase().replace("\'", "").replace("]", "").replace("[", ""));
             
@@ -675,50 +655,6 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButtonConsultar.setEnabled(true);
     }//GEN-LAST:event_jComboBoxEstudiosActionPerformed
-
-    private void jComboBoxServcioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxServcioActionPerformed
-
-        String servicio = (String) jComboBoxServcio.getSelectedItem();
-
-        String plarchivo = "consult('src/peliculas.pl')";
-        Query con = new Query(plarchivo);
-        System.out.println(plarchivo + " " + (con.hasSolution() ? "verdadero" : "fallo"));
-
-        Query existenpeliculasservicio
-                = new Query(
-                        "existenpeliculasservicio",
-                        new Term[]{new Atom(servicio.toLowerCase())}
-                );
-
-        boolean existenpeliculasservicioresultado;
-
-        existenpeliculasservicioresultado = existenpeliculasservicio.hasSolution();
-
-        Query existenseriesservicio
-                = new Query(
-                        "existenseriesservicio",
-                        new Term[]{new Atom(servicio.toLowerCase())}
-                );
-
-        boolean existenseriesservicioresultado;
-
-        existenseriesservicioresultado = existenseriesservicio.hasSolution();
-
-        jComboBoxTipo.removeAllItems();
-
-        if (existenseriesservicioresultado) {
-            jComboBoxTipo.addItem("Serie");
-        }
-
-        if (existenpeliculasservicioresultado) {
-            jComboBoxTipo.addItem("Pelicula");
-        }
-
-        if (existenpeliculasservicioresultado || existenseriesservicioresultado) {
-            jComboBoxTipo.setEnabled(true);
-        }
-
-    }//GEN-LAST:event_jComboBoxServcioActionPerformed
 
     private void jComboBoxEstrenoSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstrenoSerieActionPerformed
         // TODO add your handling code here:
@@ -810,7 +746,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxEstrenoSerie;
     private javax.swing.JComboBox<String> jComboBoxEstudios;
     private javax.swing.JComboBox<String> jComboBoxGenero;
-    private javax.swing.JComboBox<String> jComboBoxServcio;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -820,7 +755,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelHorario;
     private javax.swing.JLabel jLabelImgPelicula;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelTipoDieta;

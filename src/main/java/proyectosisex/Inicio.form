@@ -77,19 +77,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelTipo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelHorario" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                       <Component id="jLabelTipoDieta4" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelTipoDieta" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jComboBoxTipo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jComboBoxTipo" alignment="0" pref="163" max="32767" attributes="0"/>
                       <Component id="jComboBoxGenero" max="32767" attributes="0"/>
                       <Component id="jComboBoxEstudios" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jComboBoxServcio" min="-2" pref="163" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -119,28 +114,24 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="31" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelHorario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelTipoDieta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBoxServcio" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBoxDuracionEpi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelTipoDieta3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxEstrenoPelicula" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="jComboBoxTipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelTipoDieta3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxEstrenoPelicula" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTipoDieta4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxGenero" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelTipoDieta4" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxEstrenoSerie" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jComboBoxEstrenoSerie" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxEstudios" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -152,12 +143,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jComboBoxGenero" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelTipoDieta5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jComboBoxEstudios" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelTipoDieta" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -185,7 +171,6 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxTipoItemStateChanged"/>
@@ -193,30 +178,6 @@
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Inicio_jComboBoxTipo"/>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelHorario">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Servicio Streaming:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxServcio">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Netflix"/>
-                <StringItem index="1" value="Amazon"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxServcioActionPerformed"/>
-          </Events>
-          <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>

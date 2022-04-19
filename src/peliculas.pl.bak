@@ -5,112 +5,60 @@
 % Año de estreno
 % 
 
-% Pelicula-Netflix-------------------------------------------------------------------
+% Peliculas-------------------------------------------------------------------
 
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,DURACION,ESTRENORMIN,ESTRENORMAX,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-pelicula,SERVICIO = netflix,duracionpeliculas(DURACION,DMIN,DMAX),peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,DURACION,ESTRENORMIN,ESTRENORMAX,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+pelicula,duracionpeliculas(DURACION,DMIN,DMAX),peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
 SERVICIO,NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX,atom_number(ESTRENORMIN, ESTRENORMINR),
 atom_number(ESTRENORMAX, ESTRENORMAXR),ANIOESTRENOR >= ESTRENORMINR,ANIOESTRENOR =< ESTRENORMAXR
-,estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(PELI,ESTUDIOPELICULAS),
-generopeliculasnetflix(GENERO,LISTAPEL),member(PELI,LISTAPEL),
+,estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_),member(PELI,ESTUDIOPELICULAS),
+generopeliculas(GENERO,LISTAPEL),member(PELI,LISTAPEL),
 actoresprinci(ACTORESPRINCIPALESR,PELI),!.
 
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-pelicula,SERVICIO = netflix,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
 SERVICIO,NOMBREIMG),
-estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(PELI,ESTUDIOPELICULAS),
-generopeliculasnetflix(GENERO,LISTAPEL),member(PELI,LISTAPEL),
+estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_),member(PELI,ESTUDIOPELICULAS),
+generopeliculas(GENERO,LISTAPEL),member(PELI,LISTAPEL),
 actoresprinci(ACTORESPRINCIPALESR,PELI),!.
 
-recpeliculaoserie(TIPO,SERVICIO,GENERO,_,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-pelicula,SERVICIO = netflix,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,_,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
 SERVICIO,NOMBREIMG),
-generopeliculasnetflix(GENERO,LISTAPEL),member(PELI,LISTAPEL),
+generopeliculas(GENERO,LISTAPEL),member(PELI,LISTAPEL),
 actoresprinci(ACTORESPRINCIPALESR,PELI),!.
 
 
-% Serie-Netflix-------------------------------------------------------------------
+% Serie-------------------------------------------------------------------
 
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,DURACION,ESTRENORMINR,ESTRENORMAX,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-serie,SERVICIO = netflix,duracionseries(DURACION,DMIN,DMAX),seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,DURACION,ESTRENORMINR,ESTRENORMAX,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+serie,duracionseries(DURACION,DMIN,DMAX),seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
 NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX,
 atom_number(ESTRENORMAX, ESTRENORMAXR),ANIOESTRENOR = ESTRENORMAXR
-,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(SERI,ESTUDIOPELICULAS),
-generoseriesnetflix(GENERO,LISTASERIES),member(SERI,LISTASERIES),
+,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_),member(SERI,ESTUDIOPELICULAS),
+generoseries(GENERO,LISTASERIES),member(SERI,LISTASERIES),
 actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-serie,SERVICIO = netflix,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
 NOMBREIMG)
 ,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(SERI,ESTUDIOPELICULAS),
-generoseriesnetflix(GENERO,LISTASERIES),member(SERI,LISTASERIES),
+generoseries(GENERO,LISTASERIES),member(SERI,LISTASERIES),
 actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
 
-recpeliculaoserie(TIPO,SERVICIO,GENERO,_,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-serie,SERVICIO = netflix,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
+recpeliculaoserie(TIPO,GENERO,_,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
 NOMBREIMG),
-generoseriesnetflix(GENERO,LISTASERIES),member(SERI,LISTASERIES),
+generoseries(GENERO,LISTASERIES),member(SERI,LISTASERIES),
 actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
-% Pelicula-amazon-------------------------------------------------------------------
-
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,DURACION,ESTRENORMIN,ESTRENORMAX,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-pelicula,SERVICIO = amazon,duracionpeliculas(DURACION,DMIN,DMAX),peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-SERVICIO,NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX,atom_number(ESTRENORMIN, ESTRENORMINR),
-atom_number(ESTRENORMAX, ESTRENORMAXR),ANIOESTRENOR >= ESTRENORMINR,ANIOESTRENOR =< ESTRENORMAXR
-,estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(PELI,ESTUDIOPELICULAS),
-generopeliculasamazon(GENERO,LISTAPEL),member(PELI,LISTAPEL),
-actoresprinci(ACTORESPRINCIPALESR,PELI),!.
-
-
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-pelicula,SERVICIO = amazon,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-SERVICIO,NOMBREIMG),
-estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(PELI,ESTUDIOPELICULAS),
-generopeliculasamazon(GENERO,LISTAPEL),member(PELI,LISTAPEL),
-actoresprinci(ACTORESPRINCIPALESR,PELI),!.
-
-recpeliculaoserie(TIPO,SERVICIO,GENERO,_,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-pelicula,SERVICIO = amazon,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-SERVICIO,NOMBREIMG),
-generopeliculasamazon(GENERO,LISTAPEL),member(PELI,LISTAPEL),
-actoresprinci(ACTORESPRINCIPALESR,PELI),!.
-
-% Serie-amazon-------------------------------------------------------------------
-
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,DURACION,ESTRENORMINR,ESTRENORMAX,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-serie,SERVICIO = amazon,duracionseries(DURACION,DMIN,DMAX),seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
-NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX,
-atom_number(ESTRENORMAX, ESTRENORMAXR),ANIOESTRENOR = ESTRENORMAXR
-,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(SERI,ESTUDIOPELICULAS),
-generoseriesamazon(GENERO,LISTASERIES),member(SERI,LISTASERIES),
-actoresprinci(ACTORESPRINCIPALESR,SERI),!.
-
-recpeliculaoserie(TIPO,SERVICIO,GENERO,ESTUDIO,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-serie,SERVICIO = amazon,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
-NOMBREIMG)
-,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(SERI,ESTUDIOPELICULAS),
-generoseriesamazon(GENERO,LISTASERIES),member(SERI,LISTASERIES),
-actoresprinci(ACTORESPRINCIPALESR,SERI),!.
-
-recpeliculaoserie(TIPO,SERVICIO,GENERO,_,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-ACTORESPRINCIPALESR,NOMBREIMG):-TIPO =
-serie,SERVICIO = amazon,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
-NOMBREIMG),
-generoseriesamazon(GENERO,LISTASERIES),member(SERI,LISTASERIES),
-actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
 % -------------------------------------------------------
 
@@ -123,25 +71,20 @@ existenseriesservicio(S):-seriestitulos(_,_,_,_,_,_,S,_),!.
 
 % Regla para obtener los generos disponibles con base en si es pelicula o serie y el servicio
 
-genseriopel(SERVICIO,TIPO,GENERO):-SERVICIO = netflix,TIPO = pelicula,generopeliculasnetflix(GENERO,_).
-genseriopel(SERVICIO,TIPO,GENERO):-SERVICIO = netflix,TIPO = serie,generoseriesnetflix(GENERO,_).
+genseriopel(TIPO,GENERO):-TIPO = pelicula,generopeliculas(GENERO,_).
+genseriopel(TIPO,GENERO):-TIPO = serie,generoseries(GENERO,_).
 
-genseriopel(SERVICIO,TIPO,GENERO):-SERVICIO = hbo,TIPO = serie,generoserieshbo(GENERO,_).
-genseriopel(SERVICIO,TIPO,GENERO):-SERVICIO = hbo,TIPO = pelicula,generopeliculashbo(GENERO,_).
-
-genseriopel(SERVICIO,TIPO,GENERO):-SERVICIO = amazon,TIPO = serie,generoseriesamazon(GENERO,_).
-genseriopel(SERVICIO,TIPO,GENERO):-SERVICIO = amazon,TIPO = pelicula,generopeliculasamazon(GENERO,_).
 
 
 % -------------------------------------------------------
 
 % Regla para estudios de peliculas o series
 
-consulestudiosp(TIPO,GENERO,SERVICIO,OESTUDIO,ESTUDIO):-TIPO =
-pelicula,estudiocinematograficopelicula(OESTUDIO,ESTUDIO,_,GENEROS,SERVICIOS),member(GENERO,GENEROS),member(SERVICIO,SERVICIOS).
+consulestudiosp(TIPO,GENERO,OESTUDIO,ESTUDIO):-TIPO =
+pelicula,estudiocinematograficopelicula(OESTUDIO,ESTUDIO,_,GENEROS),member(GENERO,GENEROS).
 
-consulestudiosp(TIPO,GENERO,SERVICIO,OESTUDIO,ESTUDIO):-TIPO =
-serie,estudiocinematograficoserie(OESTUDIO,ESTUDIO,_,GENEROS,SERVICIOS),member(GENERO,GENEROS),member(SERVICIO,SERVICIOS).
+consulestudiosp(TIPO,GENERO,OESTUDIO,ESTUDIO):-TIPO =
+serie,estudiocinematograficoserie(OESTUDIO,ESTUDIO,_,GENEROS),member(GENERO,GENEROS).
 
 % -------------------------------------------------------
 % Normal (1 hr - 2 hr), Media (2 hr - 3 hr), Larga (> 3 hr)
@@ -153,9 +96,9 @@ duracionpeliculas(larga,181,240).
 % -------------------------------------------------------
 % Normal (45 m - 1hr), Media (1 hr - 1 hr 30m), Larga (1 hr 30m - 2 hr)
 
-duracionseries(normal,45,60).
-duracionseries(media,61,90).
-duracionseries(larga,91,120).
+duracionseries(normal,30,40).
+duracionseries(media,41,60).
+duracionseries(larga,61,75).
 
 
 % -------------------------------------------------------
@@ -189,6 +132,18 @@ peliculastitulos(oscuraverdad,"Oscura verdad",92,pg13,2021,amazon,"oscuraverdad.
 peliculastitulos(guason,"Guason",122,b15,2019,amazon,"guason.jpg").
 
 
+peliculastitulos(estacionzombie,"Estacion Zombie",117,tvma,2016,netflix,"estacionzombie.jpg").
+peliculastitulos(islasiniestra,"La isla siniestra",138,r,2010,netflix,"islasiniestra.jpg").
+peliculastitulos(ilusionista,"El ilusionista",108,pg13,2006,netflix,"ilusionista.jpg").
+peliculastitulos(hannibal,"Hannibal",131,r,2001,netflix,"hannibal.jpg").
+
+
+peliculastitulos(blackfriday,"Black Friday",161,tvma,2004,netflix,"blackfriday.jpg").
+peliculastitulos(bastardossingloria,"Bastardos sin gloria",152,r,2009,netflix,"bastardossingloria.jpg").
+peliculastitulos(amoresperros,"Amores Perros",154,r,2001,netflix,"amoresperros.jpg").
+peliculastitulos(ganamericano,"Ganster americano",156,r,2007,netflix,"ganamericano.jpg").
+peliculastitulos(secretoenlamontania,"Secreto en la montaña",134,r,2005,netflix,"secretoenlamontania.jpg").
+
 
 % -------------------------------------------------------
 
@@ -202,6 +157,11 @@ seriestitulos(loscien,"Los 100",45,7,tvma,2020,netflix,"loscien.jpg").
 seriestitulos(orangeisthenewblack,"Orange is the new black",60,7,tvma,2019,netflix,"orangeisthenewblack.jpg").
 seriestitulos(puntociego,"Punto ciego",50,5,tv14,2020,netflix,"puntociego.jpg").
 
+seriestitulos(hanna,"Hanna",67,3,tvma,2019,amazon,"hanna.jpg").
+seriestitulos(themaninthehighcastle,"The Man in the High Castle",65,4,tvma,2015,amazon,"themaninthehighcastle.jpg").
+seriestitulos(americanhorror,"American Horror Story",70,10,tvma,2015,amazon,"americanhorror.jpg").
+
+
 
 
 % ------------------------------------------------------
@@ -210,66 +170,61 @@ seriestitulos(puntociego,"Punto ciego",50,5,tv14,2020,netflix,"puntociego.jpg").
 
 % Va ligada a genseriopel
 
-generopeliculasnetflix(terror,[conjuro]).
-generopeliculasnetflix(drama,[amigosint,enemigoace,elpianista,eldiscursorey,hombreenllamas]).
-generopeliculasnetflix(comedia,[amigosint]).
-generopeliculasnetflix(aventura,[gladiador,sherlock,guerramundialz,noe,perfectoasesino]).
-generopeliculasnetflix(accion,[gladiador,misionrescate,guerramundialz,hombreenllamas,noe,perfectoasesino]).
-generopeliculasnetflix(belico,[enemigoace,elpianista]).
-generopeliculasnetflix(misterio,[elcodigodavinci]).
+generopeliculas(terror,[conjuro,venomcarnage,candyman,laabuela,oscuraverdad,estacionzombie]).
+generopeliculas(drama,[amigosint,enemigoace,elpianista,eldiscursorey,hombreenllamas,guason,spencer,ilusionista,blackfriday,bastardossingloria,amoresperros,ganamericano,secretoenlamontania]).
+generopeliculas(comedia,[amigosint,venomcarnage]).
+generopeliculas(aventura,[gladiador,sherlock,guerramundialz,noe,perfectoasesino,moonfall,estacionzombie,bastardossingloria]).
+generopeliculas(accion,[gladiador,misionrescate,guerramundialz,hombreenllamas,noe,perfectoasesino,venomcarnage,nadie,estacionzombie,bastardossingloria,ganamericano]).
+generopeliculas(belico,[enemigoace,elpianista]).
+generopeliculas(misterio,[elcodigodavinci,islasiniestra,ilusionista,hannibal]).
+generopeliculas(crimen,[guason,hannibal,blackfriday]).
 
 
-generoseriesnetflix(comedia,[lupin,orangeisthenewblack]).
-generoseriesnetflix(drama,[gotham,blacklist,anatomiasegungray,you,loscien,orangeisthenewblack,puntociego]).
-generoseriesnetflix(accion,[gotham,blacklist,lupin,loscien]).
-generoseriesnetflix(criminal,[you]).
-generoseriesnetflix(misterio,[puntociego]).
 
 
-generoseriesamazon(drama,[gooddoctor]).
+
+generoseries(comedia,[lupin,orangeisthenewblack]).
+generoseries(drama,[gotham,blacklist,anatomiasegungray,you,loscien,orangeisthenewblack,puntociego,gooddoctor,hanna]).
+generoseries(accion,[gotham,blacklist,lupin,loscien,hanna]).
+generoseries(criminal,[you]).
+generoseries(misterio,[puntociego]).
+generoseries(ficcion,[themaninthehighcastle]).
+generoseries(horror,[americanhorror]).
 
 
-generopeliculasamazon(accion,[venomcarnage,nadie]).
-generopeliculasamazon(terror,[venomcarnage,candyman,laabuela,oscuraverdad]).
-generopeliculasamazon(comedia,[venomcarnage]).
-generopeliculasamazon(aventura,[moonfall]).
-generopeliculasamazon(drama,[guason,spencer]).
-generopeliculasamazon(crimen,[guason]).
+
 
 
 % -------------------------------------------------------
 
 % Estudios cinemátográficos
 
-estudiocinematograficopelicula(studiobabelsberg,"Studio Babelsberg",[elpianista],[drama,belico],[netflix]).
-estudiocinematograficopelicula(seesawfilms,"See Saw Films",[eldiscursorey],[drama],[netflix]).
-estudiocinematograficopelicula(newlinecinema,"New Line Cinema",[conjuro],[terror],[netflix]).
-estudiocinematograficopelicula(gaumontfilmcompany,"Gaumont Film Company",[amigosint],[drama,comedia,gladiador],[netflix]).
-estudiocinematograficopelicula(universalpictures,"Universal Pictures",[gladiador],[accion,aventura],[netflix]).
-estudiocinematograficopelicula(imagineentertainment,"Imagine Entertainment",[elcodigodavinci,hombreenllamas],[misterio,accion,drama],[netflix]).
-estudiocinematograficopelicula(skydanceproductions,"Skydance Productions",[guerramundialz],[aventura,accion],[netflix]).
-estudiocinematograficopelicula(agbo,"AGBO",[misionrescate],[accion],[netflix]).
-estudiocinematograficopelicula(silverpictures,"Silver Pictures",[sherlock],[aventura],[netflix]).
-estudiocinematograficopelicula(marvelentertainment,"Marvel Entertainment",[venomcarnage],[accion,terror,comedia],[amazon]).
-estudiocinematograficopelicula(northproductions,"North Productions",[nadie],[accion],[amazon]).
-estudiocinematograficopelicula(centropolisentertainment,"Centropolis Entertainment",[moonfall],[aventura],[amazon]).
-estudiocinematograficopelicula(paramountpictures,"Paramount Pictures",[noe,perfectoasesino,enemigoace],[accion,aventura,belico],[netflix]).
+estudiocinematograficopelicula(studiobabelsberg,"Studio Babelsberg",[elpianista,enemigoace],[drama,belico]).
+estudiocinematograficopelicula(gaumontfilmcompany,"Gaumont Film Company",[amigosint,eldiscursorey],[drama,comedia]).
+estudiocinematograficopelicula(universalpictures,"Universal Pictures",[gladiador,hannibal,secretoenlamontania,bastardossinglori],[accion,aventura,crimen,misterio,drama]).
+estudiocinematograficopelicula(imagineentertainment,"Imagine Entertainment",[elcodigodavinci,hombreenllamas,misionrescate,ganamericano],[misterio,accion,drama]).
+estudiocinematograficopelicula(skydanceproductions,"Skydance Productions",[guerramundialz],[aventura,accion]).
+estudiocinematograficopelicula(marvelentertainment,"Marvel Entertainment",[venomcarnage,nadie],[accion,terror,comedia]).
+estudiocinematograficopelicula(centropolisentertainment,"Centropolis Entertainment",[moonfall,sherlock],[aventura]).
+estudiocinematograficopelicula(paramountpictures,"Paramount Pictures",[noe,perfectoasesino,islasiniestra,blackfriday],[accion,aventura,misterio,crimen,drama]).
+estudiocinematograficopelicula(komplizenfilm,"Komplizen Film",[spencer,oscuraverdad,candyman,laabuela],[drama,terror]).
+estudiocinematograficopelicula(dcfilms,"DC Films",[guason],[drama,crimen]).
+estudiocinematograficopelicula(nextentertainmentworld,"Next Entertainment World",[estacionzombie,conjuro],[terror,accion,aventura]).
+estudiocinematograficopelicula(yarifilmgroup,"Yari Film Group",[ilusionista],[misterio,drama]).
+estudiocinematograficopelicula(zetafilms,"Zeta Films",[amoresperros],[drama]).
 
 
 
-estudiocinematograficopelicula(triStarpictures,"TriStar Pictures",[candyman,laabuela],[terror],[amazon]).
-estudiocinematograficopelicula(komplizenfilm,"Komplizen Film",[spencer,oscuraverdad],[drama,terror],[amazon]).
-estudiocinematograficopelicula(dcfilms,"DC Films",[guason],[drama,crimen],[amazon]).
 
 
-estudiocinematograficoserie(lionsgatetelevision,"Lionsgate Television",[orangeisthenewblack],[drama,comedia],[netflix]).
-estudiocinematograficoserie(warnerbros,"Warner Bros",[puntociego,loscien],[drama,misterio,accion],[netflix]).
-
-
-estudiocinematograficoserie(abcsignature,"ABC Signature",[anatomiasegungray],[drama],[netflix]).
-estudiocinematograficoserie(dcentertainment,"DC Entertainment",[gotham,blacklist],[drama,accion],[netflix]).
-estudiocinematograficoserie(gaumonttelevision,"Gaumont Television",[lupin,you],[comedia,accion,drama,criminal],[netflix]).
-estudiocinematograficoserie(abdsignature,"ABC Signature",[gooddoctor],[drama],[amazon]).
+estudiocinematograficoserie(lionsgatetelevision,"Lionsgate Television",[orangeisthenewblack],[drama,comedia]).
+estudiocinematograficoserie(warnerbros,"Warner Bros",[puntociego,loscien],[drama,misterio,accion]).
+estudiocinematograficoserie(abcsignature,"ABC Signature",[anatomiasegungray],[drama]).
+estudiocinematograficoserie(dcentertainment,"DC Entertainment",[gotham,blacklist],[drama,accion]).
+estudiocinematograficoserie(gaumonttelevision,"Gaumont Television",[lupin,you],[comedia,accion,drama,criminal]).
+estudiocinematograficoserie(abdsignature,"ABC Signature",[gooddoctor],[drama]).
+estudiocinematograficoserie(nbcuniversal,"NBCUniversal",[hanna],[drama,accion]).
+estudiocinematograficoserie(amazonstudios,"Amazon Studios",[themaninthehighcastle,americanhorror],[ficcion,horror]).
 
 
 
@@ -282,11 +237,9 @@ actoresprinci(["Jude Law","Erwin Konig"],enemigoace).
 actoresprinci(["Adrien Brody","Ed Stoppard","Emilia Fox"],elpianista).
 actoresprinci(["Colin Firth","Guy Pearce","Geoffrey Rush"],eldiscursorey).
 actoresprinci(["Ellen Pompeo","Sandra Oh","Katherine Heigl"],anatomiasegungray).
-
 actoresprinci(["Bob Odenkirk","Connie Nielsen"],nadie).
 actoresprinci(["Tom Hardy","Woody Harrelson"],venomcarnage).
 actoresprinci(["Halle Berry","Patrick Wilson"],moonfall).
-
 actoresprinci(["Chris Hemsworth","Randeep Hooda"],misionrescate).
 actoresprinci(["Robert Downey Jr","Jude Law"],sherlock).
 actoresprinci(["Brad Pitt","Mirelle Enos"],guerramundialz).
@@ -307,15 +260,23 @@ actoresprinci(["Kristen Stewart","Jack Farthing"],spencer).
 actoresprinci(["Llana Glazer","Sophia Bush"],oscuraverdad).
 actoresprinci(["Joaquin Phoenix","Robert De Niro"],guason).
 actoresprinci(["Almudena Amor","Vera Valdez"],laabuela).
+actoresprinci(["Esme Creed-Miles","Mireille Enos","Joel Kinnaman"],hanna).
+actoresprinci(["Alexa Davalos","Rupert Evans","Luke Kleintank"],themaninthehighcastle).
+actoresprinci(["Variado por temprada"],americanhorror).
+actoresprinci(["Gong Yoo","Jung Yu-mi"],estacionzombie).
+actoresprinci(["Leonardo DiCaprio","Mark Ruffalo"],islasiniestra).
+actoresprinci(["Edward Norton","Paul Giamatti"],ilusionista).
+actoresprinci(["Anthony Hopkis","Julianne Moore"],hannibal).
+actoresprinci(["Pavan Malhotra","Kay Kay Menon"],blackfriday).
+actoresprinci(["Brad Pitt","Melanie Laurent"],bastardossingloria).
+actoresprinci(["Emilio Echeverria","Gael Garcia"],amoresperros).
+actoresprinci(["Denzel Washington","Russell Crowe"],ganamericano).
+actoresprinci(["Heath Ledger","Jake Gyllenhaal"],secretoenlamontania).
 
 
 
 
 % Nuevas ---------------------------------------------------------------------------------
-
-
-
-
 
 
 
