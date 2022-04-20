@@ -7,58 +7,79 @@
 
 % Peliculas-------------------------------------------------------------------
 
-recpeliculaoserie(TIPO,GENERO,ESTUDIO,DURACION,ESTRENORMIN,ESTRENORMAX,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,CLASIFICACION,DURACION,NOMBREPELICULAR,DURACIONR,ANIOESTRENOR,
 ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
-pelicula,duracionpeliculas(DURACION,DMIN,DMAX),peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-SERVICIO,NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX,atom_number(ESTRENORMIN, ESTRENORMINR),
-atom_number(ESTRENORMAX, ESTRENORMAXR),ANIOESTRENOR >= ESTRENORMINR,ANIOESTRENOR =< ESTRENORMAXR
+pelicula,duracionpeliculas(DURACION,DMIN,DMAX),peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACION,ANIOESTRENOR,
+SERVICIO,NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX
 ,estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_),member(PELI,ESTUDIOPELICULAS),
 generopeliculas(GENERO,LISTAPEL),member(PELI,LISTAPEL),
 actoresprinci(ACTORESPRINCIPALESR,PELI),!.
 
-recpeliculaoserie(TIPO,GENERO,ESTUDIO,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,_,CLASIFICACION,_,NOMBREPELICULAR,DURACIONR,ANIOESTRENOR,
 ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
-pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACION,ANIOESTRENOR,
 SERVICIO,NOMBREIMG),
-estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_),member(PELI,ESTUDIOPELICULAS),
 generopeliculas(GENERO,LISTAPEL),member(PELI,LISTAPEL),
 actoresprinci(ACTORESPRINCIPALESR,PELI),!.
 
-recpeliculaoserie(TIPO,GENERO,_,_,_,_,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,_,_,NOMBREPELICULAR,DURACIONR,ANIOESTRENOR,
 ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
-pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
-SERVICIO,NOMBREIMG),
+pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,_,ANIOESTRENOR,
+SERVICIO,NOMBREIMG)
+,estudiocinematograficopelicula(ESTUDIO,_,ESTUDIOPELICULAS,_),member(PELI,ESTUDIOPELICULAS),
 generopeliculas(GENERO,LISTAPEL),member(PELI,LISTAPEL),
+actoresprinci(ACTORESPRINCIPALESR,PELI),!.
+
+recpeliculaoserie(TIPO,_,_,CLASIFICACION,_,NOMBREPELICULAR,DURACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,CLASIFICACION,ANIOESTRENOR,
+SERVICIO,NOMBREIMG),
+actoresprinci(ACTORESPRINCIPALESR,PELI),!.
+
+recpeliculaoserie(TIPO,_,_,_,_,NOMBREPELICULAR,DURACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+pelicula,peliculastitulos(PELI,NOMBREPELICULAR,DURACIONR,_,ANIOESTRENOR,
+SERVICIO,NOMBREIMG),
 actoresprinci(ACTORESPRINCIPALESR,PELI),!.
 
 
 % Serie-------------------------------------------------------------------
 
-recpeliculaoserie(TIPO,GENERO,ESTUDIO,DURACION,ESTRENORMINR,ESTRENORMAX,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,CLASIFICACION,DURACION,NOMBRESERIER,DURACIONR,ANIOESTRENOR,
 ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
-serie,duracionseries(DURACION,DMIN,DMAX),seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
-NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX,
-atom_number(ESTRENORMAX, ESTRENORMAXR),ANIOESTRENOR = ESTRENORMAXR
+serie,duracionseries(DURACION,DMIN,DMAX),seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACION,ANIOESTRENOR,SERVICIO,
+NOMBREIMG),DURACIONR >= DMIN,DURACIONR =< DMAX
 ,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_),member(SERI,ESTUDIOPELICULAS),
 generoseries(GENERO,LISTASERIES),member(SERI,LISTASERIES),
 actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
-recpeliculaoserie(TIPO,GENERO,ESTUDIO,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,ESTUDIO,_,_,NOMBRESERIER,DURACIONR,ANIOESTRENOR,
 ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
-serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
+serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,_,ANIOESTRENOR,SERVICIO,
 NOMBREIMG)
-,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_,_),member(SERI,ESTUDIOPELICULAS),
+,estudiocinematograficoserie(ESTUDIO,_,ESTUDIOPELICULAS,_),member(SERI,ESTUDIOPELICULAS),
 generoseries(GENERO,LISTASERIES),member(SERI,LISTASERIES),
 actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
-
-recpeliculaoserie(TIPO,GENERO,_,_,_,_,NOMBRESERIER,DURACIONR,CLASIFICACIONR,ANIOESTRENOR,
+recpeliculaoserie(TIPO,GENERO,_,CLASIFICACION,_,NOMBRESERIER,DURACIONR,ANIOESTRENOR,
 ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
-serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACIONR,ANIOESTRENOR,SERVICIO,
+serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACION,ANIOESTRENOR,SERVICIO,
 NOMBREIMG),
 generoseries(GENERO,LISTASERIES),member(SERI,LISTASERIES),
 actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
+recpeliculaoserie(TIPO,_,_,CLASIFICACION,_,NOMBRESERIER,DURACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,CLASIFICACION,ANIOESTRENOR,SERVICIO,
+NOMBREIMG),
+actoresprinci(ACTORESPRINCIPALESR,SERI),!.
+
+recpeliculaoserie(TIPO,_,_,_,_,NOMBRESERIER,DURACIONR,ANIOESTRENOR,
+ACTORESPRINCIPALESR,NOMBREIMG,SERVICIO):-TIPO =
+serie,seriestitulos(SERI,NOMBRESERIER,DURACIONR,_,_,ANIOESTRENOR,SERVICIO,
+NOMBREIMG),
+actoresprinci(ACTORESPRINCIPALESR,SERI),!.
 
 % -------------------------------------------------------
 
@@ -161,7 +182,9 @@ seriestitulos(hanna,"Hanna",67,3,tvma,2019,amazon,"hanna.jpg").
 seriestitulos(themaninthehighcastle,"The Man in the High Castle",65,4,tvma,2015,amazon,"themaninthehighcastle.jpg").
 seriestitulos(americanhorror,"American Horror Story",70,10,tvma,2015,amazon,"americanhorror.jpg").
 
-
+seriestitulos(ratched,"Ratched",50,3,tvma,2020,netflix,"ratched.jpg").
+seriestitulos(dark,"Dark",65,3,tvma,2020,netflix,"dark.jpg").
+seriestitulos(scream,"Scream",35,3,tvma,2016,netflix,"scream.jpg").
 
 
 % ------------------------------------------------------
@@ -184,13 +207,13 @@ generopeliculas(crimen,[guason,hannibal,blackfriday]).
 
 
 generoseries(comedia,[lupin,orangeisthenewblack]).
-generoseries(drama,[gotham,blacklist,anatomiasegungray,you,loscien,orangeisthenewblack,puntociego,gooddoctor,hanna]).
+generoseries(drama,[gotham,blacklist,anatomiasegungray,you,loscien,orangeisthenewblack,puntociego,gooddoctor,hanna,ratched]).
 generoseries(accion,[gotham,blacklist,lupin,loscien,hanna]).
 generoseries(criminal,[you]).
-generoseries(misterio,[puntociego]).
+generoseries(misterio,[puntociego,dark]).
 generoseries(ficcion,[themaninthehighcastle]).
 generoseries(horror,[americanhorror]).
-
+generoseries(terror,[scream,ratched]).
 
 
 
@@ -218,15 +241,14 @@ estudiocinematograficopelicula(zetafilms,"Zeta Films",[amoresperros],[drama]).
 
 
 estudiocinematograficoserie(lionsgatetelevision,"Lionsgate Television",[orangeisthenewblack],[drama,comedia]).
-estudiocinematograficoserie(warnerbros,"Warner Bros",[puntociego,loscien],[drama,misterio,accion]).
+estudiocinematograficoserie(warnerbros,"Warner Bros",[puntociego,loscien,dark],[drama,misterio,accion]).
 estudiocinematograficoserie(abcsignature,"ABC Signature",[anatomiasegungray],[drama]).
 estudiocinematograficoserie(dcentertainment,"DC Entertainment",[gotham,blacklist],[drama,accion]).
 estudiocinematograficoserie(gaumonttelevision,"Gaumont Television",[lupin,you],[comedia,accion,drama,criminal]).
 estudiocinematograficoserie(abdsignature,"ABC Signature",[gooddoctor],[drama]).
 estudiocinematograficoserie(nbcuniversal,"NBCUniversal",[hanna],[drama,accion]).
-estudiocinematograficoserie(amazonstudios,"Amazon Studios",[themaninthehighcastle,americanhorror],[ficcion,horror]).
-
-
+estudiocinematograficoserie(amazonstudios,"Amazon Studios",[themaninthehighcastle,americanhorror,scream],[ficcion,horror,terror]).
+estudiocinematograficoserie(televisionstudios,"Television Studios",[ratched],[terror,drama]).
 
 % -------------------------------------------------------
 
@@ -272,11 +294,18 @@ actoresprinci(["Brad Pitt","Melanie Laurent"],bastardossingloria).
 actoresprinci(["Emilio Echeverria","Gael Garcia"],amoresperros).
 actoresprinci(["Denzel Washington","Russell Crowe"],ganamericano).
 actoresprinci(["Heath Ledger","Jake Gyllenhaal"],secretoenlamontania).
+actoresprinci(["Sarah Paulson","Finn Wittrock"],ratched).
+actoresprinci(["Louis Hofmann","Oliver Masucci"],dark).
+actoresprinci(["RJ Cyler","Jessica Sula"],scream).
+
 
 
 
 
 % Nuevas ---------------------------------------------------------------------------------
+
+
+
 
 
 

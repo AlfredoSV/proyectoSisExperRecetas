@@ -54,14 +54,12 @@ public class Inicio extends javax.swing.JFrame {
         jButtonConsultar = new javax.swing.JButton();
         jLabelTipoDieta1 = new javax.swing.JLabel();
         jLabelTipoDieta2 = new javax.swing.JLabel();
-        jComboBoxEstrenoPelicula = new javax.swing.JComboBox<>();
+        jComboBoxClasificacion = new javax.swing.JComboBox<>();
         jLabelTipoDieta3 = new javax.swing.JLabel();
         jComboBoxDuracionPeli = new javax.swing.JComboBox<>();
         jComboBoxDuracionEpi = new javax.swing.JComboBox<>();
         jLabelTipoDieta4 = new javax.swing.JLabel();
         jComboBoxEstudios = new javax.swing.JComboBox<>();
-        jLabelTipoDieta5 = new javax.swing.JLabel();
-        jComboBoxEstrenoSerie = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -143,15 +141,15 @@ public class Inicio extends javax.swing.JFrame {
         jLabelTipoDieta2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTipoDieta2.setText("Duración pelicula:");
 
-        jComboBoxEstrenoPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000-2008", "2008-2016", "2016-2022" }));
-        jComboBoxEstrenoPelicula.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxClasificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PG13", "R", "TVMA", "B15", "B", "C", "K12", "TV14" }));
+        jComboBoxClasificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxEstrenoPeliculaActionPerformed(evt);
+                jComboBoxClasificacionActionPerformed(evt);
             }
         });
 
         jLabelTipoDieta3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTipoDieta3.setText("Estreno pelicula:");
+        jLabelTipoDieta3.setText("Clasificación:");
 
         jComboBoxDuracionPeli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal (1 hr - 2 hr)", "Media (2 hr - 3 hr)", "Larga (> 3 hr)" }));
         jComboBoxDuracionPeli.addActionListener(new java.awt.event.ActionListener() {
@@ -177,16 +175,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabelTipoDieta5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTipoDieta5.setText("Estreno serie:");
-
-        jComboBoxEstrenoSerie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2005", "2018", "2019", "2020", "2021" }));
-        jComboBoxEstrenoSerie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxEstrenoSerieActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -199,26 +187,26 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(jLabelTipoDieta))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxTipo, 0, 163, Short.MAX_VALUE)
                     .addComponent(jComboBoxGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxEstudios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBoxEstudios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTipoDieta1)
                     .addComponent(jLabelTipoDieta2)
-                    .addComponent(jLabelTipoDieta3)
-                    .addComponent(jLabelTipoDieta5))
+                    .addComponent(jLabelTipoDieta3))
                 .addGap(70, 70, 70)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxDuracionEpi, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxDuracionPeli, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxEstrenoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxEstrenoSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBoxDuracionEpi, 0, 179, Short.MAX_VALUE)
+                    .addComponent(jComboBoxClasificacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxDuracionPeli, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(313, 313, 313)
                 .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,27 +220,19 @@ public class Inicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTipoDieta3)
-                    .addComponent(jComboBoxEstrenoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTipoDieta4)
                     .addComponent(jComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBoxEstrenoSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxEstudios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTipoDieta2)
-                            .addComponent(jComboBoxDuracionPeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelTipoDieta5)
-                            .addComponent(jLabelTipoDieta))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBoxEstudios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelTipoDieta2)
+                        .addComponent(jComboBoxDuracionPeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelTipoDieta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         jLabelTipo.getAccessibleContext().setAccessibleName("jLabelTipo");
@@ -271,16 +251,16 @@ public class Inicio extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(303, 303, 303)
+                .addGap(326, 326, 326)
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
@@ -467,14 +447,10 @@ public class Inicio extends javax.swing.JFrame {
             if (tipo.equals("Pelicula")) {
                 jComboBoxDuracionPeli.setEnabled(true);
                 jComboBoxDuracionEpi.setEnabled(false);
-                jComboBoxEstrenoSerie.setEnabled(false);
-                jComboBoxEstrenoPelicula.setEnabled(true);
             } else {
 
                 jComboBoxDuracionPeli.setEnabled(false);
                 jComboBoxDuracionEpi.setEnabled(true);
-                jComboBoxEstrenoSerie.setEditable(true);
-                jComboBoxEstrenoPelicula.setEnabled(false);
             }
             jComboBoxGenero.setEnabled(true);
             //JOptionPane.showMessageDialog(null,seleccionado);
@@ -551,10 +527,6 @@ public class Inicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jComboBoxGeneroActionPerformed
 
-    private void jComboBoxEstrenoPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstrenoPeliculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxEstrenoPeliculaActionPerformed
-
     private void jComboBoxDuracionPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDuracionPeliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxDuracionPeliActionPerformed
@@ -565,8 +537,7 @@ public class Inicio extends javax.swing.JFrame {
 
         String genero = (String) jComboBoxGenero.getSelectedItem();
 
-        String[] estreno = jComboBoxEstrenoPelicula.getSelectedItem().toString().split("-");
-        String estrenoSerie = jComboBoxEstrenoSerie.getSelectedItem().toString();
+        String clasificacion = jComboBoxClasificacion.getSelectedItem().toString();
 
         String duracionEpí = (jComboBoxDuracionEpi.getSelectedItem().toString().split("\\("))[0].trim();
 
@@ -576,14 +547,7 @@ public class Inicio extends javax.swing.JFrame {
 
         String estudio = ((String) jComboBoxEstudios.getSelectedItem()).replace(" ", "").toLowerCase();
 
-        String estrenomin = (String) (estreno[0]);
-        String estrenomax = (String) (estreno[1]);
 
-        if(tipo.equals("Serie")){
-            estrenomax = estrenoSerie;
-            estrenomin = estrenoSerie;
-        }
-        
         if (tipo.equals("Pelicula")) {
             duracion = (String) duracionPel;
         }
@@ -595,20 +559,18 @@ public class Inicio extends javax.swing.JFrame {
 
         Variable TITULO = new Variable("TITULO");
         Variable DURACIONR = new Variable("DURACIONR");
-        Variable CLASIFICACIONR = new Variable("CLASIFICACIONR");
         Variable ANIOESTRENOR = new Variable("ANIOESTRENOR");
         Variable ACTORESPRINCIPALESR = new Variable("ACTORESPRINCIPALESR");
         Variable NOMBREIMG = new Variable("NOMBREIMG");
 
         Variable SERVICIO = new Variable("SERVICIO");
-        Atom j = new Atom(estreno[0]);
-
+        
         Query q4
                 = new Query(
                         "recpeliculaoserie",
                         new Term[]{new Atom(tipo.toLowerCase()), 
-                            new Atom(genero.toLowerCase()), new Atom(estudio), new Atom(duracion.toLowerCase()),
-                            new Atom(estrenomin), new Atom(estrenomax), TITULO, DURACIONR, CLASIFICACIONR, ANIOESTRENOR, ACTORESPRINCIPALESR, NOMBREIMG,SERVICIO}
+                            new Atom(genero.toLowerCase()), new Atom(estudio), new Atom(clasificacion.toLowerCase()), new Atom(duracion.toLowerCase()),
+                            TITULO, DURACIONR, ANIOESTRENOR, ACTORESPRINCIPALESR, NOMBREIMG,SERVICIO}
                 );
 
         java.util.Map<String, Term> solution;
@@ -633,7 +595,6 @@ public class Inicio extends javax.swing.JFrame {
             
             jTextPaneDuracion.setText(solution.get("DURACIONR") + " minutos");
             
-            jTextPaneClasificacion.setText(solution.get("CLASIFICACIONR").toString().toUpperCase());
             
             JOptionPane.showMessageDialog(null, "Recomendación:" +solution.get("TITULO").toString().replace("\'", ""));
             
@@ -656,9 +617,9 @@ public class Inicio extends javax.swing.JFrame {
         jButtonConsultar.setEnabled(true);
     }//GEN-LAST:event_jComboBoxEstudiosActionPerformed
 
-    private void jComboBoxEstrenoSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstrenoSerieActionPerformed
+    private void jComboBoxClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClasificacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxEstrenoSerieActionPerformed
+    }//GEN-LAST:event_jComboBoxClasificacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -740,10 +701,9 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConsultar;
+    private javax.swing.JComboBox<String> jComboBoxClasificacion;
     private javax.swing.JComboBox<String> jComboBoxDuracionEpi;
     private javax.swing.JComboBox<String> jComboBoxDuracionPeli;
-    private javax.swing.JComboBox<String> jComboBoxEstrenoPelicula;
-    private javax.swing.JComboBox<String> jComboBoxEstrenoSerie;
     private javax.swing.JComboBox<String> jComboBoxEstudios;
     private javax.swing.JComboBox<String> jComboBoxGenero;
     private javax.swing.JComboBox<String> jComboBoxTipo;
@@ -762,7 +722,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTipoDieta2;
     private javax.swing.JLabel jLabelTipoDieta3;
     private javax.swing.JLabel jLabelTipoDieta4;
-    private javax.swing.JLabel jLabelTipoDieta5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
