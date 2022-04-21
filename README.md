@@ -6,6 +6,6 @@
 
 #Nota: Es necesario agrega la dependencia jpl.jar
 
-
+![cap1](https://github.com/AlfredoSV/proyectoSistemaExpertoRecomendacionesPeliculasYSeries_Java_Prolog/blob/main/capturas/cap1.PNG)
 
 
